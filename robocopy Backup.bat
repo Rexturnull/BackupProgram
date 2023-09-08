@@ -17,11 +17,14 @@ echo "                            |_|                     |___/                 
 echo "                                                                              " 
 echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 echo .
+echo ================================robocopy version================================
+echo .
 echo .
 echo 1) You should put this bat file on the source directory!!!.
 echo 2) Enter the target Destination to Start Backup Program.
 echo 3) Enter 'exit' to Exit the program.
 echo .
+
 
 :inputLoop
 echo Current directory : %CD%
@@ -47,7 +50,7 @@ echo .
 echo ===== Start your backup at %date% %time% =====
 echo .
 echo %CD% back up to !targetDestination!...
-xcopy /D/S/Y/E/C/I/R/A *.* !targetDestination!
+robocopy . !targetDestination! /MIR /R:5 /W:3 /MT:100 *.*
 echo ===== End Differential backup at %date% %time% =====
 echo Enter 'exit' to Exit the program.
 echo .
